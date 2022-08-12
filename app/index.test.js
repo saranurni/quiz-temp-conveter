@@ -1,27 +1,32 @@
-
 import tryConvert from "./index.js";
 
 test("convert from 100 Celsius toFahrenheit", () => {
-  expect(tryConvert(100)).toBe(212);
+  const temp2Convert = 100;
+  const conversion = "toFahrenheit";
+  const expected = "212";
+  const result = tryConvert(temp2Convert, conversion);
+  expect(result).toBe(expected);
 });
 
 test("convert from 50 Fahrenheit toCelsius", () => {
-  expect(tryConvert(50)).toBe(10);
+  const temp2Convert = 50;
+  const conversion = "toCelsius";
+  const expected = "10";
+  const result = tryConvert(temp2Convert, conversion);
+  expect(result).toBe(expected);
 });
 
 test("convert to Celsius with non-numerical input", () => {
-  expect(tryConvert(NaN)).toBe("blank string"):
-}
-)
+  const temp2Convert = "abc";
+  const conversion = "toCelsius";
+
+  const result = tryConvert(temp2Convert, conversion);
+  expect(result).toBe("");
+});
 
 test("convert to Fahrenheit with non-numerical input", () => {
-  expect(tryConvert(NaN)).toBe("blank string");
-}
-)
-
-
-
-
-
-
-
+  const temp2Convert = "abc";
+  const conversion = "toFahrenheit";
+  const result = tryConvert(temp2Convert, conversion);
+  expect(result).toBe("");
+});
